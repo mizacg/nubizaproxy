@@ -304,8 +304,9 @@ bool events::out::generictext(std::string packet) {
                   
                 }
             }
-       
+	
             return true;
+		
         } else if (find_command(chat, "skin ")) {
             int skin = atoi(chat.substr(6).c_str());
             variantlist_t va{ "OnChangeSkin" };
@@ -323,7 +324,7 @@ bool events::out::generictext(std::string packet) {
             return true;
 
 
-}else if (find_command(chat, "pinfo")) {
+}else if (find_command(chat, "info")) {
                    std::string paket;
             paket =
                 "\nadd_label_with_icon|big|Proxy information|left|20|"
@@ -337,9 +338,7 @@ bool events::out::generictext(std::string packet) {
                 "\nadd_textbox|`9Genta 7740|left|2480|"
                 "\nadd_textbox|`9BotHax YT|left|2480|"
                 "\nadd_textbox|`9SrMotion|left|2480|"
-                "\nadd_textbox|`9If you Want Re-Edit this proxy please|left|2480|"
-                "\nadd_textbox|`9Dont Edit/Delete The Credits!!!|left|2480|"
-                "\nadd_textbox|`9or you will dieee !!!!!|left|2480|"
+                "\nadd_textbox|`9NubizaGT|left|2480|"
                 "\nadd_quick_exit|"
                 "\nend_dialog|end|Cancel|Okay|";
             variantlist_t liste{ "OnDialogRequest" };
@@ -347,7 +346,7 @@ bool events::out::generictext(std::string packet) {
             g_server->send(true, liste);
             return true;
         
-        } else if (find_command(chat, "phelp")) {
+        } else if (find_command(chat, "proxy")) {
            // gt::send_log(
             //    "`2/tp [name] (teleports to a player in the world), /ghost (toggles ghost, you wont move for others when its enabled), /uid "
             //    "`2[name] (resolves name to uid), /flag [id] (sets flag to item id), /name [name] (sets name to name), /banall, /kickall, /tradeall"
@@ -359,34 +358,35 @@ bool events::out::generictext(std::string packet) {
                 "\nadd_label_with_icon|big|Proxy Commands Gazette|left|20|"
                 "\nadd_image_button|banner|interface/large/news_banner.rttex|bannerlayout|||"
                 "\nadd_spacer|small"
-                "\nadd_textbox|`2/tp [name] (teleports to a player in the world)|left|2480|"
-                "\nadd_textbox|`2/ghost (toggles ghost, you wont move for others when its enabled)|left|2480|"
-                "\nadd_textbox|`2/uid [name] (resolves name to uid)|left|2480|"
-                "\nadd_textbox|`2/flag [id] (sets flag to item id)|left|2480|"
-                "\nadd_textbox|`2/name [name] (Change Name Visual)|left|2480|"
-                "\nadd_textbox|`2/banall (World Ban All People in world)|left|2480|"
-                "\nadd_textbox|`2/killall (Kick all People in world)|left|2480|"
-                "\nadd_textbox|`2/tradeall (trade all people in the world|left|2480|"
-                "\nadd_textbox|`2/warp [world name] (warping world without SSUP)|left|2480|"
-                "\nadd_textbox|`2/skin [Id] (change skin colours)|left|2480|"
-                "\nadd_textbox|`2/wrenchmode (wrench modefor wrench pull, kick, pull, ban, trade, add)|left|2480|"
-                "\nadd_textbox|`2/wrenchset (for set wrenchmode : pull,kick,ban,trade,add friend)|left|2480|"
-                "\nadd_textbox|`2/ft (fast trash) |left|2480|"
-                "\nadd_textbox|`2/fd (fast drop) |left|2480|"
-                "\nadd_textbox|`2/wrenchmsg (Auto Msg when wrench people) |left|2480|"
-                "\nadd_textbox|`2/setmsg (Costum Text for Wrenchmsg and wrenchspam) |left|2480|"
-                "\nadd_textbox|`2/country (/countrylist for check list)|left|2480|"
-                "\nadd_textbox|`2/msgall (not really worked because spam detected) |left|2480|"
-                "\nadd_textbox|`2/wrenchspam (wrench spam like wrench msg do/setspam for set text) |left|2480|"
-                "\nadd_textbox|`2/automsg (auto msg when people enter world) |left|2480|"
-                "\nadd_textbox|`2/door (teleport to id door (you must know the id door)) |left|2480|"
-                "\nadd_textbox|`2/pinfo (Proxy information) |left|2480|"
-                "\nadd_textbox|`2/countrylist (List Country For /country) |left|2480|"
-                "\nadd_textbox|`2/autopull (auto pull when people enter world) |left|2480|"
-                "\nadd_textbox|`2/pullauto (auto pull for casino hoster) |left|2480|"
-                "\nadd_spacer|small|\n\nadd_url_button||`$YouTube``|NOFLAGS|https://youtube.com/c/FakeModzGT|Open link?|0|0|"
-                "\nadd_spacer|small|\n\nadd_url_button||`$Discord``|NOFLAGS|https://discord.com/invite/YfnMbjWjpP|Open link?|0|0|"
-                "\nadd_spacer|small|\n\nadd_url_button||`$INSTAGRAM``|NOFLAGS|https://instagram.com/FakeModz.yt|Open link?|0|0|"
+                "\nadd_textbox|`2/tp [name] `0(teleports to a player in the world)|left|2480|"
+                "\nadd_textbox|`2/ghost `0(toggles ghost, you wont move for others when its enabled)|left|2480|"
+                "\nadd_textbox|`2/uid [name] `0(resolves name to uid)|left|2480|"
+                "\nadd_textbox|`2/flag [id] `0(sets flag to item id)|left|2480|"
+                "\nadd_textbox|`2/name [name] `0(Change Name Visual)|left|2480|"
+                "\nadd_textbox|`2/banall `0(World Ban All People in world)|left|2480|"
+                "\nadd_textbox|`2/killall `0(Kick all People in world)|left|2480|"
+                "\nadd_textbox|`2/tradeall `0(trade all people in the world|left|2480|"
+                "\nadd_textbox|`2/warp [world name] `0(warping world without SSUP)|left|2480|"
+                "\nadd_textbox|`2/skin [Id] `0(change skin colours)|left|2480|"
+                "\nadd_textbox|`2/wrenchmode `0(wrench modefor wrench pull, kick, pull, ban, trade, add)|left|2480|"
+                "\nadd_textbox|`2/wrenchset `0(for set wrenchmode : pull,kick,ban,trade,add friend)|left|2480|"
+                "\nadd_textbox|`2/ft `0(fast trash) |left|2480|"
+                "\nadd_textbox|`2/fd `0(fast drop) |left|2480|"
+                "\nadd_textbox|`2/wrenchmsg `0(Auto Msg when wrench people) |left|2480|"
+                "\nadd_textbox|`2/setmsg `0(Costum Text for Wrenchmsg and wrenchspam) |left|2480|"
+                "\nadd_textbox|`2/country `0(/countrylist for check list)|left|2480|"
+                "\nadd_textbox|`2/msgall `0(not really worked because spam detected) |left|2480|"
+                "\nadd_textbox|`2/wrenchspam `0(wrench spam like wrench msg do/setspam for set text) |left|2480|"
+                "\nadd_textbox|`2/automsg `0(auto msg when people enter world) |left|2480|"
+                "\nadd_textbox|`2/door `0(teleport to id door (you must know the id door)) |left|2480|"
+                "\nadd_textbox|`2/pinfo `0(Proxy information) |left|2480|"
+                "\nadd_textbox|`2/countrylist `0(List Country For /country) |left|2480|"
+                "\nadd_textbox|`2/autopull `0(auto pull when people enter world) |left|2480|"
+                "\nadd_textbox|`2/pullauto `0(auto pull for casino hoster) |left|2480|"
+		"\nadd_textbox|`2/crash `0(you can crash world) |left|2480|"
+                "\nadd_spacer|small|\n\nadd_url_button||`$YouTube``|NOFLAGS|https://youtube.com/c/NubizaGT|Open link?|0|0|"
+                "\nadd_spacer|small|\n\nadd_url_button||`$Discord``|NOFLAGS|https://discord.gg/9QxsGt2Qqz|Open link?|0|0|"
+                "\nadd_spacer|small|\n\nadd_url_button||`$INSTAGRAM``|NOFLAGS|https://instagram.com/NubizaGT|Open link?|0|0|"
                 "\nadd_quick_exit|"
                 "\nend_dialog|end|Cancel|Okay|";
             variantlist_t liste{ "OnDialogRequest" };
@@ -493,7 +493,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
         case fnv32("OnSendToServer"): g_server->redirect_server(varlist); return true;
 
         case fnv32("OnConsoleMessage"): {
-            varlist[1] = "`#[FakeModz]`` " + varlist[1].get_string();
+            varlist[1] = "`2[NubizaProxy]`` " + varlist[1].get_string();
             auto cnsl = varlist[1].get_string();
           g_server->send(true, varlist);
        return true;
